@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Изменяем кириллицу на латиницу по клику</title><link rel="icon" href="logo.png"><link rel="stylesheet" href="style.css"></head>
+<body><a id="top"></a>
+<header><a href="index.html" class="logo"><img src="logo.png" alt="Ёмкости: на главную" width="48" height="48"></a>
+<nav><ul><li><a href="index.html">Главная</a></li><li><a href="kub.html">Куб</a></li><li><a href="cilindr.html">Цилиндр</a></li><li><a href="dostavka.html">Доставка</a></li><li><a href="pasport.html">Паспорт: DOM</a></li><li><a href="latinica.html" class=active aria-current=page>Латиница</a></li><li><a href="zad1007.html">Задача 1007</a></li><li><a href="zakaz.html">Заказ</a></li><li><a href="kontakty.html">Контакты</a></li><li><a href="index.html#catalog">Каталог</a></li><li><a href="https://ru.wikipedia.org/wiki/Объём" target="_blank" rel="noopener">Википедия: объём</a></li></ul></nav></header>
+<main><h1>Изменяем кириллицу на латиницу по клику</h1>
+<ul class="toc"><li><a href="#lang">Язык</a></li><li><a href="#pass">Паспорт</a></li></ul>
+<h2 id="lang" data-en="Language">Язык</h2>
+<div><button id="bCyr" type="button" aria-pressed="true">Кириллица</button> <button id="bLat" type="button" aria-pressed="false">Латиница</button></div>
+<h2 id="pass" data-en="Passport pages">Страницы паспорта</h2>
+<div class="passport"><h3 data-en="Page 2">Страница 2</h3>
+<p><span class="l" data-en="Passport issued by:">Паспорт выдан:</span><span data-en="Central Police Department, Tambov">ОВД «Центральный» г. Тамбова</span></p>
+<p><span class="l" data-en="Date of issue:">Дата выдачи:</span><span>14.08.2021</span><span class="l" data-en=", division code:">, код подразделения:</span><span>680-001</span></p></div>
+<div class="passport"><h3 data-en="Page 3">Страница 3</h3><img class="photo" src="foto_pasp.png" alt="Фото на паспорт (кот)" width="120" height="150">
+<p><span class="l" data-en="Surname:">Фамилия:</span><span id="sname" data-en="SOROKOV">СОРОКОВ</span></p>
+<p><span class="l" data-en="Given name:">Имя:</span><span id="fname" data-en="ANDREY">АНДРЕЙ</span></p>
+<p><span class="l" data-en="Patronymic:">Отчество:</span><span data-en="IVANOVICH">ИВАНОВИЧ</span></p>
+<p><span class="l" data-en="Sex:">Пол:</span><span data-en="M">МУЖ.</span></p>
+<p><span class="l" data-en="Date of birth:">Дата рождения:</span><span>12.03.</span><span id="year">2007</span></p>
+<p><span class="l" data-en="Place of birth:">Место рождения:</span><span data-en="MOSCOW">ГОР. МОСКВА</span></p><div style="clear:both"></div></div>
+<p class="up"><a href="#top">К началу</a></p></main>
+<footer>Сороков Андрей, БХИМИ252, контрольная работа 1</footer>
+<script>var els=[].slice.call(document.querySelectorAll("[data-en]")),h1=document.querySelector("h1"),
+bC=document.getElementById("bCyr"),bL=document.getElementById("bLat"),ruTitle=document.title,enTitle="Changing Cyrillic to Latin on click";
+h1.setAttribute("data-en",enTitle);els.push(h1);
+els.forEach(function(e){e.setAttribute("data-ru",e.textContent);});
+function setLang(en){els.forEach(function(e){e.textContent=e.getAttribute(en?"data-en":"data-ru");});
+document.title=en?enTitle:ruTitle;document.documentElement.lang=en?"en":"ru";
+bL.setAttribute("aria-pressed",en);bC.setAttribute("aria-pressed",!en);}
+bL.onclick=function(){setLang(true);};bC.onclick=function(){setLang(false);};</script>
+</body></html>

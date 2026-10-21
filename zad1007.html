@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Решение алгоритмической задачи</title><link rel="icon" href="logo.png"><link rel="stylesheet" href="style.css"></head>
+<body><a id="top"></a>
+<header><a href="index.html" class="logo"><img src="logo.png" alt="Ёмкости: на главную" width="48" height="48"></a>
+<nav><ul><li><a href="index.html">Главная</a></li><li><a href="kub.html">Куб</a></li><li><a href="cilindr.html">Цилиндр</a></li><li><a href="dostavka.html">Доставка</a></li><li><a href="pasport.html">Паспорт: DOM</a></li><li><a href="latinica.html">Латиница</a></li><li><a href="zad1007.html" class=active aria-current=page>Задача 1007</a></li><li><a href="zakaz.html">Заказ</a></li><li><a href="kontakty.html">Контакты</a></li><li><a href="index.html#catalog">Каталог</a></li><li><a href="https://ru.wikipedia.org/wiki/Объём" target="_blank" rel="noopener">Википедия: объём</a></li></ul></nav></header>
+<main><h1>Решение алгоритмической задачи</h1>
+<ul class="toc"><li><a href="#cond">Условие</a></li><li><a href="#calc">Решение</a></li></ul>
+<h2 id="cond">Условие (задача 1007)</h2>
+<div class="note">Есть две ёмкости: кубическая с ребром A и цилиндрическая с высотой H и радиусом основания R. Определить, поместится ли жидкость объёма M в первую ёмкость, во вторую, в обе.</div>
+<h2 id="calc">Решение</h2>
+<form onsubmit="return false">
+<label for="a">Ребро куба A</label><input id="a" type="number" step="any" min="0" value="10">
+<label for="h">Высота цилиндра H</label><input id="h" type="number" step="any" min="0" value="20">
+<label for="r">Радиус основания R</label><input id="r" type="number" step="any" min="0" value="5">
+<label for="m">Объём жидкости M</label><input id="m" type="number" step="any" min="0" value="900">
+<button type="button" id="go">Определить</button></form>
+<div class="result" id="res">Введите данные (в одних единицах длины и объёма) и нажмите кнопку.</div>
+<p class="up"><a href="#top">К началу</a></p></main>
+<footer>Сороков Андрей, БХИМИ252, контрольная работа 1</footer>
+<script>document.getElementById("go").onclick=function(){
+var A=parseFloat(document.getElementById("a").value),H=parseFloat(document.getElementById("h").value),
+R=parseFloat(document.getElementById("r").value),M=parseFloat(document.getElementById("m").value),out=document.getElementById("res");
+if([A,H,R,M].some(function(v){return isNaN(v)||v<0;})||A===0||H===0||R===0){out.textContent="Ошибка: A, H, R должны быть больше 0, а M не меньше 0.";return;}
+var v1=A*A*A,v2=Math.PI*R*R*H,in1=M<=v1,in2=M<=v2;
+function yn(b){return b?"да, поместится":"нет, не поместится";}
+out.innerHTML="Объём куба V₁ = A³ = "+v1.toFixed(2)+"<br>Объём цилиндра V₂ = π·R²·H = "+v2.toFixed(2)+
+"<ul><li>В первую ёмкость (куб): "+yn(in1)+"</li><li>Во вторую ёмкость (цилиндр): "+yn(in2)+"</li>"+
+"<li>В обе ёмкости, если разлить жидкость по двум (V₁ + V₂ = "+(v1+v2).toFixed(2)+"): "+yn(M<=v1+v2)+"</li></ul>";};</script>
+</body></html>

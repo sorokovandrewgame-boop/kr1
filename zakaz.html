@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Заказ ёмкости</title><link rel="icon" href="logo.png"><link rel="stylesheet" href="style.css"></head>
+<body><a id="top"></a>
+<header><a href="index.html" class="logo"><img src="logo.png" alt="Ёмкости: на главную" width="48" height="48"></a>
+<nav><ul><li><a href="index.html">Главная</a></li><li><a href="kub.html">Куб</a></li><li><a href="cilindr.html">Цилиндр</a></li><li><a href="dostavka.html">Доставка</a></li><li><a href="pasport.html">Паспорт: DOM</a></li><li><a href="latinica.html">Латиница</a></li><li><a href="zad1007.html">Задача 1007</a></li><li><a href="zakaz.html" class=active aria-current=page>Заказ</a></li><li><a href="kontakty.html">Контакты</a></li><li><a href="index.html#catalog">Каталог</a></li><li><a href="https://ru.wikipedia.org/wiki/Объём" target="_blank" rel="noopener">Википедия: объём</a></li></ul></nav></header>
+<main><h1>Заказ ёмкости</h1>
+
+<form action="https://httpbin.org/post" method="post" target="result_frame" data-ok="Заказ оформлен и отправлен на сервер. Спасибо!">
+<input type="hidden" name="shop_id" value="store-01"><input type="hidden" name="source" value="site-order-form">
+<label for="cn">Имя заказчика</label><input id="cn" type="text" name="customer_name" value="Покупатель" required>
+<label for="q">Количество, шт.</label><input id="q" type="number" name="quantity" value="1" min="1" max="100">
+<label>Форма ёмкости</label>
+<label class="inline"><input type="radio" name="shape" value="cube" checked> Куб</label>
+<label class="inline"><input type="radio" name="shape" value="cylinder"> Цилиндр</label>
+<label>Дополнительно</label>
+<label class="inline"><input type="checkbox" name="options" value="lid" checked> Крышка</label>
+<label class="inline"><input type="checkbox" name="options" value="engraving"> Гравировка</label>
+<label class="inline"><input type="checkbox" name="options" value="delivery"> Доставка</label>
+<label for="dd">Желаемая дата получения</label><input id="dd" type="date" name="delivery_date" value="2026-10-21">
+<label for="pw">Пароль для отслеживания заказа</label><input id="pw" type="password" name="order_password" value="12345">
+<button type="submit">Отправить заказ</button></form><iframe name="result_frame" id="result_frame" title="Ответ сервера" hidden></iframe><div id="ok" class="result ok" hidden><img src="galka.png" alt="Готово" width="64" height="64"><div id="ok_text"></div></div><script src="formy.js"></script>
+</main>
+<footer>Сороков Андрей, БХИМИ252, контрольная работа 1</footer>
+
+</body></html>
